@@ -11,6 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "@iarna/rtf-to-html": "^1.1.0",
+    "cloudconvert": "^2.3.7",
+    "cors": "^2.8.5",
+    "fs": "^0.0.1-security",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7",
+    "rtf-parse": "^0.1.0",
+    "txt-file-to-json": "^3.0.6"
   }
 }
