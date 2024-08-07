@@ -19,6 +19,8 @@ const port = 8080;
 // app.use(express.urlencoded({ extended: true }));
 // app.use('/output', express.static(path.join(__dirname, '../examples/_output')));
 
+app.get("/", (req, res) => res.send("Express on Vercel1"));
+
 
 app.get("/test", (req, res) => res.send("Express on Vercel"));
 
