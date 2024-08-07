@@ -8,7 +8,6 @@ const convertText = require('../examples/text');
 const extractData = require('../examples/textToJson');
 const parseRtfImages = require("../examples/images");
 const convertImage = require("../examples/convertEmfToSvg");
-const {cleanupMiddleware} = require("./middleware/index.js")
 
 const port = 8080;
 
@@ -21,11 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/output', express.static(path.join(__dirname, '../examples/_output')));
 
 
-
 app.get("/test", (req, res) => res.send("Express on Vercel"));
 
 // Define a route handler for file upload
-app.post('/upload',cleanupMiddleware, upload.single('file'), async (req, res) => {
+app.post('/upload', upload.single('file'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
@@ -53,18 +51,14 @@ app.post('/upload',cleanupMiddleware, upload.single('file'), async (req, res) =>
       }
     });
 
+
+
   } catch (error) {
     console.error('Conversion error:', error);
     res.status(500).json({ error: 'Failed to convert file' });
   }
 });
 
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
 
 // Start the server
 app.listen(port, () => {
