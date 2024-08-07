@@ -12,7 +12,7 @@ const convertImage = require("../examples/convertEmfToSvg");
 const port = 8080;
 
 // // Configure multer for file uploads
-// const upload = multer({ dest: path.join(__dirname, 'uploads') });
+const upload = multer({ dest: path.join(__dirname, 'uploads') });
 
 // app.use(cors());
 // app.use(express.json());
@@ -25,41 +25,41 @@ app.get("/", (req, res) => res.send("Express on Vercel1"));
 app.get("/test", (req, res) => res.send("Express on Vercel"));
 
 // Define a route handler for file upload
-// app.post('/upload', upload.single('file'), async (req, res) => {
-//   if (!req.file) {
-//     return res.status(400).json({ error: 'No file uploaded' });
-//   }
+app.post('/upload', upload.single('file'), async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
 
-//   console.log("File uploaded:", req.file);
+  console.log("File uploaded:", req.file);
 
-//   const uploadedFilePath = path.join(__dirname, 'uploads', req.file.filename);
+  const uploadedFilePath = path.join(__dirname, 'uploads', req.file.filename);
 
-//   try {
-//     const textData = await convertText(uploadedFilePath);
-//     console.log('textData', textData)
-//     const jsonData = await extractData(textData);
-//     const images = await parseRtfImages(uploadedFilePath);
+  try {
+    const textData = await convertText(uploadedFilePath);
+    console.log('textData', textData)
+    const jsonData = await extractData(textData);
+    const images = await parseRtfImages(uploadedFilePath);
     
-//     const svgFiles = await convertImage(images);
+    const svgFiles = await convertImage(images);
 
-//     // Send JSON response to frontend
-//     res.json({
-//       data: {
-//         jsonData,
-//         svgFiles: svgFiles.map(file => ({
-//           filename: file.filename,
-//           url: `/output/${path.basename(file.path)}`
-//         }))
-//       }
-//     });
+    // Send JSON response to frontend
+    res.json({
+      data: {
+        jsonData,
+        svgFiles: svgFiles.map(file => ({
+          filename: file.filename,
+          url: `/output/${path.basename(file.path)}`
+        }))
+      }
+    });
 
 
 
-//   } catch (error) {
-//     console.error('Conversion error:', error);
-//     res.status(500).json({ error: 'Failed to convert file' });
-//   }
-// });
+  } catch (error) {
+    console.error('Conversion error:', error);
+    res.status(500).json({ error: 'Failed to convert file' });
+  }
+});
 
 
 // Start the server
