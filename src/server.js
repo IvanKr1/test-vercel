@@ -7,6 +7,8 @@ app.get('/', (req, res) => {
   res.send('Hello World')
 })
 
+app.get("/test", (req, res) => res.send("Express on Vercel"));
+
 app.get('/about', (req, res) => {
   res.send('About route 🎉 ')
 })
