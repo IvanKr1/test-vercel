@@ -1,0 +1,75 @@
+﻿Šipke - specifikacija
+ozn
+
+oblik i mjere
+[cm]
+Ø
+
+lg
+[m]
+n
+[kom]
+lgn
+[m]
+poz. T3 (1 kom)
+1
+
+12
+8.70
+6
+52.20
+2
+
+12
+3.52
+16
+56.32
+3
+
+12
+8.62
+4
+34.48
+4
+
+12
+2.84
+20
+56.80
+5
+
+12
+4.67
+16
+74.72
+6
+
+12
+3.39
+16
+54.24
+7
+
+12
+9.25
+2
+18.50
+Šipke - rekapitulacija
+Ø
+[mm]
+lgn
+[m]
+Jedinična težina
+[kg/m']
+Težina
+[kg]
+B 500B
+12
+347.26
+0.91
+316.35
+Ukupno (B 500B)
+316.35
+Ukupno
+316.35
+
